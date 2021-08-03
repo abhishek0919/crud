@@ -1,0 +1,78 @@
+<nav class="navbar navbar-light bg-primary">
+  <div class="container-fluid">
+    <h1>Property management system</h1>
+    <div class="d-flex">
+      <button type="button"data-bs-toggle="modal" data-bs-target="#exampleModal" class="btn btn-success">Add Dealer</button>
+    </div>
+  </div>
+</nav>
+
+<table class="table mt-3">
+  <thead>
+    <tr>
+      <th> Dealer ID</th>
+      <th> First Name</th>
+      <th> Last Name</th>
+      <th> Email  ID</th>
+      <th> Mobile No</th>
+      <th> Property price</th>
+      <th> Action</th>
+    </tr>
+  </thead>
+  <tbody>
+     <tr *ngFor ="let row of dealerData">
+      <td>{{row.id}}</td>
+      <td>{{row.firstName}}</td>
+      <td>{{row.lastName}}</td>
+      <td>{{row.email}}</td>
+      <td>{{row.mobile}}</td>
+      <td>{{row.price}}</td>
+      <td>
+        <button (click)="onEdit(row)" type="button"data-bs-toggle="modal" data-bs-target="#exampleModal" >Edit</button>
+        <button (click)="deletedealers(row)">Delete</button>
+      </td>
+    </tr>
+  </tbody>
+</table>
+
+
+
+<!-- Modal -->
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+   <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Dealer details</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <form [formGroup]="formValue">
+          <div class="mb-3">
+            <label for="exampleInputEmail1" class="form-label">First name</label><br>
+            <input type="text" formControlName="firstName" id="exampleInputEmail1" aria-describedby="emailHelp">
+
+          </div>
+          <div class="mb-3">
+            <label for="exampleInputPassword1" class="form-label">Last Name</label><br>
+            <input type="text" formControlName="lastName" id="exampleInputPassword1">
+          </div>
+          <div class="mb-3">
+            <label for="exampleInputPassword1" class="form-label">Email ID</label><br>
+            <input type="text" formControlName="email" id="exampleInputPassword1">
+          </div>
+          <div class="mb-3">
+            <label for="exampleInputPassword1" class="form-label">Mobile Number</label><br>
+            <input type="text" formControlName="mobile" id="exampleInputPassword1">
+          </div>
+          <div class="mb-3">
+            <label for="exampleInputPassword1" class="form-label">Property price</label><br>
+            <input type="text" formControlName="price" id="exampleInputPassword1">
+          </div>
+        </form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" id="cancel" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+        <button type="button" (click)="postDealerDetails()"class="btn btn-primary">Add</button>
+        <button type="button" (click)="updateDealersDetails()"class="btn btn-primary">update</button>
+      </div>
+

@@ -1,0 +1,16 @@
+{
+  "posts": [
+    {
+      "id": 1,
+      "firstName": "abhishek.brichhaliya.min13@itbhu.ac.in",
+      "lastName": "abhishek.brichhaliya.min13@itbhu.ac.in",
+      "email": "abhishek.brichhaliya.min13@itbhu.ac.in",
+      "mobile": "09713784436",
+      "price": "766538"
+    }
+  ],
+  "comments": [],
+  "profile": {
+    "name": "typicode"
+  }
+}
